@@ -15,7 +15,7 @@ public:
     ~Node2();
 
     // Getters and Setters
-    T getData();
+    T &getData();
     void setData(T data);
 
     Node2 *getNext();
@@ -36,17 +36,19 @@ Node2<T>::Node2(T data, Node2 *before, Node2 *next) : data(data), before(before)
 template <typename T>
 Node2<T>::~Node2()
 {
-    if (before != nullptr) {
+    if (before != nullptr)
+    {
         before->setNext(next);
     }
-    if (next != nullptr) {
+    if (next != nullptr)
+    {
         next->setBefore(before);
     }
 }
 
 // Getters and Setters
 template <typename T>
-T Node2<T>::getData()
+T &Node2<T>::getData()
 {
     return data;
 }
