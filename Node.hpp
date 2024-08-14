@@ -14,7 +14,7 @@ public:
     ~Node();
 
     // Getters and Setters
-    T getData();
+    T &getData();
     void setData(T data);
 
     Node *getNext();
@@ -37,7 +37,7 @@ Node<T>::~Node()
 
 // Getters and Setters
 template <typename T>
-T Node<T>::getData()
+T &Node<T>::getData()
 {
     return data;
 }
