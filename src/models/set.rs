@@ -25,4 +25,8 @@ impl<T: PartialEq> Set<T> {
     pub fn contains(&self, value: &T) -> bool {
         self.array.contains(value)
     }
+
+    pub fn size(&self) -> usize{
+        self.array.len()
+    }
 }
