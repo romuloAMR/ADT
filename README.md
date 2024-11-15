@@ -5,3 +5,4 @@
 - Set
 - Sequence
 - Stack
+- Queue
