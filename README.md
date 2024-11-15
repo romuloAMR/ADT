@@ -4,3 +4,4 @@
 ## ADTs implemented 
 - Set
 - Sequence
+- Stack
