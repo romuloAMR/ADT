@@ -12,8 +12,7 @@ fn test_add() {
     set.add(1);
     assert!(set.contains(&1));
     assert_eq!(set.array.len(), 1);
-
-    set.add(1); // Adicionar novamente não deve alterar o conjunto
+    set.add(1);
     assert_eq!(set.array.len(), 1);
 }
 
@@ -28,7 +27,7 @@ fn test_remove() {
     assert!(set.contains(&2));
     assert_eq!(set.array.len(), 1);
 
-    assert!(!set.remove(&3)); // Remover um valor que não está no conjunto
+    assert!(!set.remove(&3));
 }
 
 #[test]
