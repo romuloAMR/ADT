@@ -6,3 +6,4 @@
 - Sequence
 - Stack
 - Queue
+- Deque
