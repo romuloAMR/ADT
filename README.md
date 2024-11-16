@@ -8,3 +8,4 @@
 - Queue
 - Deque
 - List
+- BinTree
