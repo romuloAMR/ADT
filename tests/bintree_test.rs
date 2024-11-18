@@ -114,3 +114,18 @@ fn test_depth(){
     tree.insert(20);
     assert_eq!(tree.depth(), 3);
 }
+
+#[test]
+fn test_contains(){
+    let empty_tree: BinTree<i32> = BinTree::Empty;
+    let tree = BinTree::Node(
+        10,
+        Box::new(BinTree::Node(5, Box::new(BinTree::Empty), Box::new(BinTree::Empty))),
+        Box::new(BinTree::Node(15, Box::new(BinTree::Empty), Box::new(BinTree::Empty)))
+    );
+    assert_eq!(empty_tree.contains(10), false);
+    assert_eq!(tree.contains(10), true);
+    assert_eq!(tree.contains(5), true);
+    assert_eq!(tree.contains(15), true);
+    assert_eq!(tree.contains(20), false);
+}

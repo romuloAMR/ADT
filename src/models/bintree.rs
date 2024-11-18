@@ -56,4 +56,19 @@ impl<T: Ord> BinTree<T> {
             }
         }
     }
+    pub fn contains(&self, value: T) -> bool{
+        match self {
+            BinTree::Empty => false,
+            BinTree::Node(data, ref left, ref right ) => {
+                if value == *data {
+                    return true
+                }
+                if value < *data {
+                    left.contains(value)
+                } else {
+                    right.contains(value)
+                }
+            }
+        }
+    }
 }
