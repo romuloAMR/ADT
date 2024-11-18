@@ -100,3 +100,17 @@ fn test_leaves() {
     tree.insert(16);
     assert_eq!(tree.leaves(), 3);
 }
+
+#[test]
+fn test_depth(){
+    let mut tree = BinTree::new();
+    assert_eq!(tree.depth(), 0);
+    tree.insert(10);
+    assert_eq!(tree.depth(), 1);
+    tree.insert(5);
+    assert_eq!(tree.depth(), 2);
+    tree.insert(15);
+    assert_eq!(tree.depth(), 2);
+    tree.insert(20);
+    assert_eq!(tree.depth(), 3);
+}

@@ -42,4 +42,18 @@ impl<T: Ord> BinTree<T> {
             }
         }
     }
+    pub fn depth(&self) -> usize{
+        match self {
+            BinTree::Empty => 0,
+            BinTree::Node(_, ref m, ref n) => {
+                let m_depth: usize = 1 + m.depth();
+                let n_depth: usize = 1 + n.depth();
+                if m_depth < n_depth {
+                    n_depth
+                } else {
+                    m_depth
+                }
+            }
+        }
+    }
 }
