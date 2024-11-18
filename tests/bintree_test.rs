@@ -60,3 +60,43 @@ fn test_insert_duplicate() {
         panic!("Tree is not a node");
     }
 }
+
+#[test]
+fn test_nodes() {
+    let mut tree = BinTree::new();
+    assert_eq!(tree.nodes(), 0);
+    tree.insert(10);
+    assert_eq!(tree.nodes(), 1);
+    tree.insert(5);
+    assert_eq!(tree.nodes(), 2);
+    tree.insert(0);
+    assert_eq!(tree.nodes(), 3);
+    tree.insert(9);
+    assert_eq!(tree.nodes(), 4);
+    tree.insert(15);
+    assert_eq!(tree.nodes(), 5);
+    tree.insert(10);
+    assert_eq!(tree.nodes(), 5);
+    tree.insert(16);
+    assert_eq!(tree.nodes(), 6);
+}
+
+#[test]
+fn test_leaves() {
+    let mut tree = BinTree::new();
+    assert_eq!(tree.leaves(), 0);
+    tree.insert(10);
+    assert_eq!(tree.leaves(), 1);
+    tree.insert(5);
+    assert_eq!(tree.leaves(), 1);
+    tree.insert(0);
+    assert_eq!(tree.leaves(), 1);
+    tree.insert(9);
+    assert_eq!(tree.leaves(), 2);
+    tree.insert(15);
+    assert_eq!(tree.leaves(), 3);
+    tree.insert(10);
+    assert_eq!(tree.leaves(), 3);
+    tree.insert(16);
+    assert_eq!(tree.leaves(), 3);
+}

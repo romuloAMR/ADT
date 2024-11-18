@@ -25,4 +25,21 @@ impl<T: Ord> BinTree<T> {
                 }
         }
     }
+    pub fn nodes(&self) -> usize{
+        match self {
+            BinTree::Empty => 0,
+            BinTree::Node(_, m, n) => 1 + m.nodes() + n.nodes()
+        }
+    }
+    pub fn leaves(&self) -> usize{
+        match self {
+            BinTree::Empty => 0,
+            BinTree::Node(_, ref m, ref n) => {
+                match (m.as_ref(), n.as_ref()) {
+                    (BinTree::Empty, BinTree::Empty) => 1,
+                    (_,_) => m.leaves() + n.leaves()
+                }
+            }
+        }
+    }
 }
