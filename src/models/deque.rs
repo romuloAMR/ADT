@@ -1,27 +1,25 @@
 pub struct Deque<T> {
-    data: Vec<T>
+    data: Vec<T>,
 }
 
 impl<T> Deque<T> {
     // Create a new deque
     pub fn new() -> Self {
-        Deque {
-            data: Vec::new()
-        }
+        Deque { data: Vec::new() }
     }
 
     // Insert element at the start
-    pub fn push_front(&mut self, value: T){
+    pub fn push_front(&mut self, value: T) {
         self.data.insert(0, value);
     }
 
     // Insert element at the end
-    pub fn push_back(&mut self, value: T){
+    pub fn push_back(&mut self, value: T) {
         self.data.push(value);
     }
 
     // Remove element at the start
-    pub fn pop_front(&mut self) -> Option<T>{
+    pub fn pop_front(&mut self) -> Option<T> {
         if self.data.is_empty() {
             None
         } else {
@@ -30,7 +28,7 @@ impl<T> Deque<T> {
     }
 
     // Remove element at the end
-    pub fn pop_back(&mut self) -> Option<T>{
+    pub fn pop_back(&mut self) -> Option<T> {
         self.data.pop()
     }
 

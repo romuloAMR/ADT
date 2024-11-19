@@ -7,7 +7,7 @@ fn test_new_sequence() {
 }
 
 #[test]
-fn test_add(){
+fn test_add() {
     let mut seq: Sequence<i32> = Sequence::new();
     seq.add(1);
     assert_eq!(seq.size(), 1);

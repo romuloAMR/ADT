@@ -29,7 +29,13 @@ fn test_push_front() {
     list = list.push_front(2).push_front(3);
     assert_eq!(
         list,
-        List::Cons(3, Box::new(List::Cons(2, Box::new(List::Cons(1, Box::new(List::Empty)))))),
+        List::Cons(
+            3,
+            Box::new(List::Cons(
+                2,
+                Box::new(List::Cons(1, Box::new(List::Empty)))
+            ))
+        ),
     )
 }
 
@@ -44,21 +50,36 @@ fn test_pop_front() {
 fn test_pop_back() {
     let list = List::new().push_front(1).push_front(2).push_front(3);
     let list = list.pop_back();
-    assert_eq!(list, List::Cons(3, Box::new(List::Cons(2, Box::new(List::Empty)))));
+    assert_eq!(
+        list,
+        List::Cons(3, Box::new(List::Cons(2, Box::new(List::Empty))))
+    );
 }
 
 #[test]
 fn test_insert() {
     let list = List::new().push_front(1).push_front(3);
     let list = list.insert(1, 2);
-    assert_eq!(list, List::Cons(3, Box::new(List::Cons(2, Box::new(List::Cons(1, Box::new(List::Empty)))))));
+    assert_eq!(
+        list,
+        List::Cons(
+            3,
+            Box::new(List::Cons(
+                2,
+                Box::new(List::Cons(1, Box::new(List::Empty)))
+            ))
+        )
+    );
 }
 
 #[test]
 fn test_remove() {
     let list = List::new().push_front(1).push_front(2).push_front(3);
     let list = list.remove(1);
-    assert_eq!(list, List::Cons(3, Box::new(List::Cons(1, Box::new(List::Empty)))));
+    assert_eq!(
+        list,
+        List::Cons(3, Box::new(List::Cons(1, Box::new(List::Empty))))
+    );
 }
 
 #[test]

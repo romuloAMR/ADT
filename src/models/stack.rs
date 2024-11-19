@@ -1,13 +1,11 @@
 pub struct Stack<T> {
-    data: Vec<T>
+    data: Vec<T>,
 }
 
 impl<T> Stack<T> {
     // Create a new stack
     pub fn new() -> Self {
-        Stack {
-            data: Vec::new()
-        }
+        Stack { data: Vec::new() }
     }
 
     // Add an element to the stack

@@ -1,13 +1,11 @@
 pub struct Queue<T> {
-    data: Vec<T>
+    data: Vec<T>,
 }
 
 impl<T> Queue<T> {
     // Create a new queue
     pub fn new() -> Self {
-        Queue {
-            data: Vec::new()
-        }
+        Queue { data: Vec::new() }
     }
 
     // Add an element to the queue
