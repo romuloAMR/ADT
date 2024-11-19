@@ -129,3 +129,22 @@ fn test_contains(){
     assert_eq!(tree.contains(15), true);
     assert_eq!(tree.contains(20), false);
 }
+
+#[test]
+fn test_remove() {
+    let mut tree = BinTree::new();
+    tree.insert(10);
+    tree.insert(5);
+    tree.insert(15);
+    tree.insert(3);
+    tree.insert(7);
+    tree.remove(5);
+    assert_eq!(tree.contains(5), false);
+    assert_eq!(tree.contains(3), true);
+    assert_eq!(tree.contains(7), true);
+    assert_eq!(tree.nodes(), 4);
+    tree.remove(10);
+    assert_eq!(tree.contains(10), false);
+    assert_eq!(tree.contains(15), true);
+    assert_eq!(tree.nodes(), 3);
+}
