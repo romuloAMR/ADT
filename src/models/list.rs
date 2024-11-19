@@ -39,6 +39,16 @@ impl<T> List<T> {
         }
     }
 
+    // Insert element at end of list
+    pub fn push_back(self, value: T) -> List<T> {
+        match self {
+            List::Empty => List::Cons(value, Box::new(List::Empty)),
+            List::Cons(head, tail) => List::Cons(head, Box::new(tail.push_back(value))),
+        }
+    }
+
+
+
     // Remove element at end of list
     pub fn pop_back(self) -> List<T> {
         match self {

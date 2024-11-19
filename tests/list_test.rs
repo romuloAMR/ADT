@@ -47,6 +47,17 @@ fn test_pop_front() {
 }
 
 #[test]
+fn test_push_back() {
+    let mut list = List::new();
+    list = list.push_back(1);
+    list = list.push_back(2);
+    list = list.push_back(3);
+    assert_eq!(list.get(0), Some(&1));
+    assert_eq!(list.get(1), Some(&2));
+    assert_eq!(list.get(2), Some(&3));
+}
+
+#[test]
 fn test_pop_back() {
     let list = List::new().push_front(1).push_front(2).push_front(3);
     let list = list.pop_back();
