@@ -1,13 +1,16 @@
+#[derive(Debug, PartialEq)]
 pub enum BinTree<T> {
     Empty,
     Node(T, Box<BinTree<T>>, Box<BinTree<T>>),
 }
 
 impl<T: Ord + Copy> BinTree<T> {
+    // Creates a new empty binary tree
     pub fn new() -> Self {
         BinTree::Empty
     }
 
+    // Inserts a value into the binary tree
     pub fn insert(&mut self, value: T) {
         match self {
             BinTree::Empty => {
@@ -23,6 +26,7 @@ impl<T: Ord + Copy> BinTree<T> {
         }
     }
 
+    // Counts the total number of nodes in the tree
     pub fn nodes(&self) -> usize {
         match self {
             BinTree::Empty => 0,
@@ -30,18 +34,18 @@ impl<T: Ord + Copy> BinTree<T> {
         }
     }
 
+    // Counts the number of leaf nodes in the tree
     pub fn leaves(&self) -> usize {
         match self {
             BinTree::Empty => 0,
-            BinTree::Node(_, ref m, ref n) => {
-                match (m.as_ref(), n.as_ref()) {
-                    (BinTree::Empty, BinTree::Empty) => 1,
-                    (_, _) => m.leaves() + n.leaves(),
-                }
-            }
+            BinTree::Node(_, ref m, ref n) => match (m.as_ref(), n.as_ref()) {
+                (BinTree::Empty, BinTree::Empty) => 1,
+                (_, _) => m.leaves() + n.leaves(),
+            },
         }
     }
 
+    // Calculates the depth of the tree
     pub fn depth(&self) -> usize {
         match self {
             BinTree::Empty => 0,
@@ -57,6 +61,7 @@ impl<T: Ord + Copy> BinTree<T> {
         }
     }
 
+    // Checks if the tree contains a specific value
     pub fn contains(&self, value: T) -> bool {
         match self {
             BinTree::Empty => false,
@@ -73,6 +78,7 @@ impl<T: Ord + Copy> BinTree<T> {
         }
     }
 
+    // Removes a value from the binary tree
     pub fn remove(&mut self, value: T) {
         match self {
             BinTree::Empty => return,
@@ -98,7 +104,11 @@ impl<T: Ord + Copy> BinTree<T> {
         }
     }
 
-    fn min_value(&self) -> Option<T> where T: Copy {
+    // Finds the minimum value in the tree
+    fn min_value(&self) -> Option<T>
+    where
+        T: Copy,
+    {
         match self {
             BinTree::Empty => None,
             BinTree::Node(data, ref left, _) => {
@@ -110,6 +120,8 @@ impl<T: Ord + Copy> BinTree<T> {
             }
         }
     }
+
+    // Checks if the tree is empty
     fn is_empty(&self) -> bool {
         matches!(self, BinTree::Empty)
     }

@@ -102,7 +102,7 @@ fn test_leaves() {
 }
 
 #[test]
-fn test_depth(){
+fn test_depth() {
     let mut tree = BinTree::new();
     assert_eq!(tree.depth(), 0);
     tree.insert(10);
@@ -116,12 +116,20 @@ fn test_depth(){
 }
 
 #[test]
-fn test_contains(){
+fn test_contains() {
     let empty_tree: BinTree<i32> = BinTree::Empty;
     let tree = BinTree::Node(
         10,
-        Box::new(BinTree::Node(5, Box::new(BinTree::Empty), Box::new(BinTree::Empty))),
-        Box::new(BinTree::Node(15, Box::new(BinTree::Empty), Box::new(BinTree::Empty)))
+        Box::new(BinTree::Node(
+            5,
+            Box::new(BinTree::Empty),
+            Box::new(BinTree::Empty),
+        )),
+        Box::new(BinTree::Node(
+            15,
+            Box::new(BinTree::Empty),
+            Box::new(BinTree::Empty),
+        )),
     );
     assert_eq!(empty_tree.contains(10), false);
     assert_eq!(tree.contains(10), true);
